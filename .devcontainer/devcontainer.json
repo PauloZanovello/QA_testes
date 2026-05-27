@@ -1,0 +1,19 @@
+{
+  "name": "Cypress Projeto Piloto",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cypress-io.cucumber-prettier-formatter",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000]
+}
