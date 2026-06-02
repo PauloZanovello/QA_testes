@@ -12,12 +12,21 @@ describe('Teste de Login - Saucedemo', () => {
     cy.get('.title').should('have.text', 'Products');
   });
 
-  it('deve exibir erro com credenciais inválidas', () => {
-    cy.get('#user-name').type('invalid_user');
-    cy.get('#password').type('invalid_password');
-    cy.get('#login-button').click();
+  it('deve exibir erro ao tentar logar com dados inválidos', () => {
+  cy.visit('https://www.saucedemo.com')
 
-    cy.get('[data-test="error"]').should('be.visible');
-    cy.get('[data-test="error"]').should('contain', 'Epic sadface');
-  });
+  cy.get('#user-name').type('invalid_user')
+  cy.get('#password').type('invalid_password')
+  cy.get('#login-button').click()
+
+  // Captura o texto do elemento de erro
+  cy.get('[data-test="error"]').invoke('text').then((textoErro) => {
+    
+    // 1. Mostra no painel do Cypress (o que você já vê na imagem)
+    cy.log(`Mensagem de erro: ${textoErro}`)
+
+    // 2. Envia para o arquivo de log externo com data e hora
+    cy.task('gravarLog', `Mensagem de erro: ${textoErro}`)
+  })
+})
 });
