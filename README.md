@@ -8,7 +8,7 @@ Este repositório é dedicado a estudos de **Quality Assurance (QA)** utilizando
 cypress/
 ├── e2e/
 │   ├── login/
-│   │   ├── login.cy.js
+│   │   ├── login.cy.js          # inclui log de erro de acesso com data e hora
 │   │   ├── primeiroAcesso.cy.js
 │   │   └── recuperarSenha.cy.js
 │   ├── produtos/
@@ -16,6 +16,7 @@ cypress/
 │   └── usuarios/
 │       ├── cadastro.cy.js
 │       └── exclusao.cy.js
+└── cypress.config.js            # configurado com task 'gravarLog' para salvar logs em disco
 ```
 
 ### Tecnologias Utilizadas
