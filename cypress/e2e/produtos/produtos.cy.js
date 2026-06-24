@@ -3,7 +3,7 @@ describe('Produtos - Saucedemo', () => {
     cy.visit('https://www.saucedemo.com');
   });
 
-  it('Deve fazer login, confirmar título e adicionar produto ao carrinho', () => {
+  it('Deve fazer login, confirmar título, adicionar um produto ao carrinho e finalizar a compra', () => {
     // Login
     cy.get('[data-test="username"]').type('standard_user');
     cy.get('[data-test="password"]').type('secret_sauce');

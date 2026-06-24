@@ -37,5 +37,10 @@ describe('Sauce Demo - filtrar por preço e adicionar o mais barato ao carrinho'
 
     // Valida se o carrinho foi atualizado
     cy.get('.shopping_cart_badge').should('have.text', '1')
+
+    // Entra no shopping cart para visualizar o produto adicionado
+    cy.get('.shopping_cart_link').click()
+    cy.url().should('include', '/cart.html')
+    cy.get('.cart_item').should('have.length', 1)
   })
 })
